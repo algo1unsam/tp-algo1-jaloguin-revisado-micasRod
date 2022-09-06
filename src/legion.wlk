@@ -14,9 +14,21 @@ object legionDelTerror {
 	}
 	
 	method lider(){
-		integrantes.max({integrante =>integrante.capacidadSusto()})
+		return integrantes.max({integrante =>integrante.capacidadSusto()})
 	}
 	
+	method recibirCaramelos(cantidad){
+		self.lider().recibirCaramelos(cantidad)
+	}
+	
+	
+	method cantidadDeCaramaelos(pibes){
+		integrantes.sortedBy({a,b=>a.caramelos()<b.caramelos()}).take(pibes)
+	}
+	
+	method sustoGrande(){
+		return integrantes.sum({integrante=>integrante.capacidadSusto()})
+	}
 }
 
 
